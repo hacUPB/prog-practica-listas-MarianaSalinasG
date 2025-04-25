@@ -1,83 +1,90 @@
 # Ejercicio 1: Suma de elementos en una lista de listas
 def suma_matriz(matriz):
-    """
-    Recibe una lista de listas y devuelve la suma de todos sus elementos.
-    Incluir el código aquí para sumar los elementos de la matriz.
-    """
-    pass
+    fil = len(matriz) #La filas son cuantas listas hay dentro de la matriz
+    col = len(matriz[0]) #La columnas son cuantas entradas hay dentro de una lista.
+    contador = 0
+    for i in range(fil):
+        for j in range(col):
+            contador += matriz[i][j]
+    return contador
 
 # Ejercicio 2: Encontrar el valor máximo en una matriz
 def maximo_matriz(matriz):
-    """
-    Recibe una lista de listas y devuelve el valor máximo.
-    Incluir el código aquí para encontrar el valor máximo en la matriz.
-    """
-    pass
+    fil = len(matriz) #La filas son cuantas listas hay dentro de la matriz
+    col = len(matriz[0]) #La columnas son cuantas entradas hay dentro de una lista.
+    max = None
+    for i in range(fil):
+        for j in range(col):
+            valor = matriz[i][j]
+            if max == None or valor > max:
+                max = valor
+    return max
 
 # Ejercicio 3: Verificar si un número es primo
-def es_primo(n):
-    """
-    Recibe un número y devuelve True si es primo, False en caso contrario.
-    Incluir el código aquí para determinar si un número es primo.
-    """
-    pass
+def es_primo(n):    
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
 
 # Ejercicio 4: Transponer una matriz
 def transponer_matriz(matriz):
-    """
-    Recibe una lista de listas y devuelve la matriz transpuesta.
-    Incluir el código aquí para transponer la matriz.
-    """
-    pass
+    traspuesta = []
+    for i in range(len(matriz[0])): 
+       nueva_fila = []
+       for j in range(len(matriz)):
+            nueva_fila.append(matriz[j][i])
+       traspuesta.append(nueva_fila)
+    return traspuesta
 
 # Ejercicio 5: Filtrar números pares
 def filtrar_pares(lista):
-    """
-    Recibe una lista de números y devuelve una nueva lista con solo los números pares.
-    Incluir el código aquí para filtrar los números pares.
-    """
-    pass
+   pares = []
+   for numero in lista:
+       if numero % 2 == 0:
+           pares.append(numero)
+   return pares
 
 # Ejercicio 6: Contar la cantidad de palabras en una frase
 def contar_palabras(frase):
-    """
-    Recibe una frase y devuelve el número de palabras.
-    Incluir el código aquí para contar las palabras en la frase.
-    """
-    pass
+    palabras = frase.split()
+    return len(palabras)
 
 # Ejercicio 7: Crear una tabla de multiplicar
 def tabla_multiplicar(n):
-    """
-    Recibe un número y devuelve una lista con su tabla de multiplicar del 1 al 10.
-    Incluir el código aquí para generar la tabla de multiplicar.
-    """
-    pass
+    tabla_multiplicar = []
+    for i in range(1, 11):
+        tabla_multiplicar.append(n*i)
+    return tabla_multiplicar
 
 # Ejercicio 8: Contar números negativos en una lista
 def contar_negativos(lista):
-    """
-    Recibe una lista de números y devuelve la cantidad de números negativos.
-    Incluir el código aquí para contar los números negativos en la lista.
-    """
-    pass
+    contador = 0
+    for numero in lista:
+        if numero < 0:
+            contador += 1
+    return contador
 
 # Ejercicio 9: Determinar si una lista está ordenada
 def lista_ordenada(lista):
-    """
-    Recibe una lista de números y devuelve True si está ordenada de menor a mayor.
-    Incluir el código aquí para verificar si la lista está ordenada.
-    """
-    pass
+    for i in range(len(lista) - 1):
+        if lista[i] > lista[i + 1]:
+            return False
+    return True
 
 # Ejercicio 10: Cifrar un texto con el cifrado César
 def cifrado_cesar(texto, desplazamiento):
-    """
-    Recibe un texto y un desplazamiento, y devuelve el texto cifrado usando el cifrado César.
-    Incluir el código aquí para cifrar el texto con el cifrado César.
-    """
-    pass
-
+    cifrado = ""
+    for char in texto:
+        if char.isalpha():
+            desplazamiento_base = ord('A') if char.isupper() else ord('a')
+            nuevo_char = chr((ord(char) - desplazamiento_base + desplazamiento) % 26 + desplazamiento_base)
+            cifrado += nuevo_char
+        else:   
+            cifrado += char
+    return cifrado
 
 #Aquí comienza el progrma principal. No modifiques el código debajo de esta línea.
 def main():
